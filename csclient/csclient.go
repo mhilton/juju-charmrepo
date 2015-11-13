@@ -260,10 +260,6 @@ func (c *Client) uploadArchive(id *charm.Reference, body io.ReadSeeker, hash str
 			return nil, errgo.Notef(err, "cannot log in")
 		}
 	}
-	// Validate the entity id.
-	if id.Series == "" {
-		return nil, errgo.Newf("no series specified in %q", id)
-	}
 	method := "POST"
 	promulgatedArg := ""
 	if id.Revision != -1 {
